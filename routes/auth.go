@@ -1,4 +1,4 @@
-package router
+package routes
 
 import (
 	c "city/controllers"
@@ -9,5 +9,4 @@ import (
 func auth(app *fiber.App) {
 	app.Get("/singin", c.SingIn)
 	app.Get("/singup", c.SingUp)
-	// app.Get("/test", c.Test)
 }

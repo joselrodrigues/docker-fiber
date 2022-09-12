@@ -1,14 +1,17 @@
 package main
 
 import (
-	r "city/routes"
+	db "city/db"
+	logger "city/log"
+	routes "city/routes"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
 	app := fiber.New()
-	r.Router(app)
-
+	logger.Setup()
+	routes.Setup(app)
+	db.Configuration()
 	app.Listen(":4001")
 }

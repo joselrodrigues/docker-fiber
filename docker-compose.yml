@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: ./docker/go/Dockerfile
     container_name: api
+    env_file:
+      - .env
     ports:
       - "80:4001"
     networks:
