@@ -1,11 +1,14 @@
+//go:generate mockgen -source auth.go -destination mock/auth_mock.go -package mock;
 package services
 
-import "github.com/gofiber/fiber/v2"
+type sendString interface {
+	SendString(v string) error
+}
 
-func SingIn(c *fiber.Ctx) error {
+func SingIn(c sendString) error {
 	return c.SendString("Sing")
 }
 
-func SingUp(c *fiber.Ctx) error {
+func SingUp(c sendString) error {
 	return c.SendString("SingUp")
 }
